@@ -28,6 +28,11 @@ class SafetyChecker:
     # Maximum allowed change per transition (degrees)
     MAX_JOINT_CHANGE = 90
     
+    # Kinematic link lengths (arbitrary units)
+    SHOULDER_LENGTH = 10.0
+    ELBOW_LENGTH = 8.0
+    WRIST_LENGTH = 5.0
+    
     # Collision zones (combinations to avoid)
     COLLISION_ZONES = [
         # (shoulder_min, shoulder_max, elbow_min, elbow_max)
@@ -168,22 +173,17 @@ class SafetyChecker:
         Returns:
             Approximate reach distance in arbitrary units
         """
-        # Simplified kinematic calculation
-        # Assuming link lengths: shoulder=10, elbow=8, wrist=5
-        SHOULDER_LENGTH = 10.0
-        ELBOW_LENGTH = 8.0
-        WRIST_LENGTH = 5.0
-        
+        # Simplified kinematic calculation using class constants
         shoulder_rad = math.radians(pose.shoulder)
         elbow_rad = math.radians(pose.elbow)
         
         # Simple 2D reach calculation
-        x = (SHOULDER_LENGTH * math.cos(shoulder_rad) +
-             ELBOW_LENGTH * math.cos(shoulder_rad + elbow_rad) +
-             WRIST_LENGTH)
+        x = (self.SHOULDER_LENGTH * math.cos(shoulder_rad) +
+             self.ELBOW_LENGTH * math.cos(shoulder_rad + elbow_rad) +
+             self.WRIST_LENGTH)
         
-        y = (SHOULDER_LENGTH * math.sin(shoulder_rad) +
-             ELBOW_LENGTH * math.sin(shoulder_rad + elbow_rad))
+        y = (self.SHOULDER_LENGTH * math.sin(shoulder_rad) +
+             self.ELBOW_LENGTH * math.sin(shoulder_rad + elbow_rad))
         
         reach = math.sqrt(x**2 + y**2)
         return reach

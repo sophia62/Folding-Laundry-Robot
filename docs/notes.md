@@ -132,7 +132,7 @@ Safety system implementation:
 ## References
 - Arduino Servo Library: https://www.arduino.cc/reference/en/libraries/servo/
 - PySerial Documentation: https://pyserial.readthedocs.io/
-- Robotics kinematics basics: [Add reference]
+- Introduction to Robot Kinematics: https://en.wikipedia.org/wiki/Robot_kinematics
 
 ## Contributors
 - Initial prototype and concept development
