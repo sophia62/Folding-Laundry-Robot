@@ -114,27 +114,28 @@ class RobotArm:
             time.sleep(0.2)
             
             # Set base position
-            self.send_command(f'b')
-            self.serial_conn.write(str(pose.base).encode())
-            self.serial_conn.write(b'\n')
+            command = f'b{pose.base}\n'
+            self.serial_conn.write(command.encode())
             time.sleep(0.5)
             
             # Set shoulder position
-            self.send_command(f's')
-            self.serial_conn.write(str(pose.shoulder).encode())
-            self.serial_conn.write(b'\n')
+            command = f's{pose.shoulder}\n'
+            self.serial_conn.write(command.encode())
             time.sleep(0.5)
             
             # Set elbow position
-            self.send_command(f'e')
-            self.serial_conn.write(str(pose.elbow).encode())
-            self.serial_conn.write(b'\n')
+            command = f'e{pose.elbow}\n'
+            self.serial_conn.write(command.encode())
             time.sleep(0.5)
             
             # Set wrist position
-            self.send_command(f'w')
-            self.serial_conn.write(str(pose.wrist).encode())
-            self.serial_conn.write(b'\n')
+            command = f'w{pose.wrist}\n'
+            self.serial_conn.write(command.encode())
+            time.sleep(0.5)
+            
+            # Set gripper position
+            command = f'g{pose.gripper}\n'
+            self.serial_conn.write(command.encode())
             time.sleep(0.5)
             
             # Exit manual mode
