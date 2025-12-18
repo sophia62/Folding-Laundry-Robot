@@ -206,19 +206,11 @@ folding-laundry-robot/
 
 ---
 
-## 🎥 Demo Videos
+## 🎥 Demo Video
 
 ▶️ **Final Folding Demonstration:**
 
-* *Link here*
-
-▶️ **Development Progress & Iterations:**
-
-* *Link here*
-
-▶️ **Behind‑the‑Scenes & Testing:**
-
-* *Link here*
+* *[Link her](https://youtu.be/dMsEmocv1UU)e*
 
 ---
 
